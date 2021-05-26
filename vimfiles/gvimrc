@@ -1,0 +1,36 @@
+colo serioga
+set guifont=Fira_Code:h10:cRUSSIAN:qDRAFT
+set guioptions-=T guioptions-=m
+" set rop=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
+set rop=type:directx
+
+set columns=120 lines=46
+winpos 650 100
+set colorcolumn=101
+
+set cursorline culopt=number
+" set number relativenumber
+set number
+set selectmode=
+
+" https://vim.fandom.com/wiki/Change_font_size_quickly#Mapping_solution
+
+nnoremap <C-kPlus> :silent! let &guifont = substitute(
+      \ &guifont,
+      \ ':h\zs\d\+',
+      \ '\=eval(submatch(0)+1)',
+      \ '')<CR>
+
+nnoremap <C-kMinus> :silent! let &guifont = substitute(
+      \ &guifont,
+      \ ':h\zs\d\+',
+      \ '\=eval(submatch(0)-1)',
+      \ '')<CR>
+
+
+command! Gvimrc :tabe $MYGVIMRC
+command! ColoSerioga :tabe ~/vimfiles/colors/serioga.vim
+
+set pythondll=C:\\Python27\\python27.dll
+set pythonthreedll=C:\\ProgramData\\chocolatey\\lib\\python3-x86_32\\tools\\python35.dll
+

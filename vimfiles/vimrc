@@ -1,0 +1,197 @@
+" vim:fdm=marker
+" Language, encoding {{{1
+set encoding=utf-8
+set langmenu=en_gb.utf-8
+"1}}}
+
+set t_Co=256
+
+" Get the defaults that most users want.
+source $VIMRUNTIME/defaults.vim
+
+" Options {{{1
+" nnoremap <SPACE> <Nop>
+" let mapleader = " "
+" let mapleader = "s"
+" nnoremap s <Nop>
+" map s <Nop>
+nnoremap <Space> <nop>
+let mapleader=" "
+
+" set hlsearch
+set ignorecase smartcase
+set nowrap linebreak
+" set number relativenumber
+set linespace=1
+set sw=2 sts=2 et
+set ai
+set fo=crq2l1j
+
+set scrolloff=5 sidescroll=5
+
+set listchars=tab:›\ ,trail:▂,extends:~,precedes:~,nbsp:▭
+set list
+
+set whichwrap+=<,>,h,l,[,]
+
+colo torte
+
+set keymap=russian-jcukenwin
+
+"1}}}
+
+" MS Windows {{{1
+source $VIMRUNTIME/mswin.vim
+" CTRL-Tab is Next tab
+noremap  <C-Tab>   <C-PageDown>
+inoremap <C-Tab>   <Esc><C-PageDown>
+noremap  <C-S-Tab> <C-PageUp>
+inoremap <C-S-Tab> <Esc><C-PageUp>
+inoremap <C-BS>    <C-W>
+"1}}}
+
+" Add optional packages {{{1
+"
+" The matchit plugin makes the % command work better, but it is not backwards compatible.
+" The ! means the package won't be loaded right away but when plugins are loaded during initialization.
+if has('syntax') && has('eval')
+  packadd! matchit
+endif
+"1}}}
+
+" Plugins {{{1
+call plug#begin('~/vimfiles/plugged')
+" Plug 'ap/vim-css-color'
+Plug 'easymotion/vim-easymotion' "{{{
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ'
+let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_startofline = 0
+map <leader>f <Plug>(easymotion-f)
+map <leader>t <Plug>(easymotion-t)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>/ <Plug>(easymotion-s)
+" nnoremap <Leader>f f
+" map fs <Plug>(easymotion-s2)
+" map fj <Plug>(easymotion-bd-jk)
+" map fk <Plug>(easymotion-bd-jk)
+" map fgg <Plug>(easymotion-jumptoanywhere)
+"}}}
+Plug 'ervandew/supertab'
+"Plug 'guns/vim-sexp' "{{{
+"Plug 'tpope/vim-sexp-mappings-for-regular-people'
+"augroup vimrc_sexp
+"  autocmd!
+"  au FileType clojure let b:autopairs_loaded=1
+"augroup END
+""}}}
+Plug 'itchyny/lightline.vim' "{{{
+set laststatus=2 noshowmode
+let g:lightline={}
+let g:lightline.component = {
+      \ 'mode': '%{lightline#mode()}',
+      \ 'absolutepath': '%F',
+      \ 'relativepath': '%f',
+      \ 'filename': '%t',
+      \ 'modified': '%M',
+      \ 'bufnum': '%n',
+      \ 'paste': '%{&paste?"PASTE":""}',
+      \ 'readonly': '%R',
+      \ 'charvalue': '%b',
+      \ 'charvaluehex': '%B',
+      \ 'fileencoding': '%{&fenc!=#""?&fenc:&enc}',
+      \ 'fileformat': '%{&ff}',
+      \ 'filetype': '%{&ft!=#""?&ft:"no ft"}',
+      \ 'percent': '%3p%%',
+      \ 'percentwin': '%P',
+      \ 'spell': '%{&spell?&spelllang:""}',
+      \ 'lineinfo': '%3l:%-2v',
+      \ 'line': '%l',
+      \ 'column': '%v',
+      \ 'close': '%999X X ',
+      \ 'winnr': '%{winnr()}' }
+"}}}
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'kamichidu/vim-edit-properties'
+Plug 'kshenoy/vim-signature'
+" Plug 'kynan/dokuvimki'
+Plug 'lifepillar/pgsql.vim'
+Plug 'machakann/vim-highlightedyank' "{{{
+let g:highlightedyank_highlight_duration = 500
+"}}}
+Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-startify' "{{{
+" let g:startify_bookmarks = [
+"       \ { ',c': '~/vimfiles/vimrc' },
+"       \ '~/vimfiles/gvimrc' ,
+"       \ '~/vimfiles/colors/serioga.vim',
+"       \ ]
+"}}}
+" Plug 'RRethy/vim-illuminate'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-surround'
+Plug 'vifm/vifm.vim'
+Plug 'vimwiki/vimwiki'
+Plug 'vim-scripts/paredit.vim' "{{{
+let g:paredit_shortmaps=1
+augroup vimrc_paredit
+  autocmd!
+  au FileType clojure let b:autopairs_loaded=1
+augroup END
+"}}}
+Plug 'vim-scripts/SQLUtilities' "{{{
+Plug 'vim-scripts/Align'
+"}}}
+call plug#end()
+"1}}}
+
+" Smooth scrolling {{{1
+map <C-U> <C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k<C-Y>k
+map <C-D> <C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j
+"1}}}
+
+" Key mappings {{{1
+" Fix non-working keys in Windows GVIM {{{
+nnoremap g<CR> <C-]>
+"}}}
+" Avoid the escape key {{{
+" https://vim.fandom.com/wiki/Avoid_the_escape_key
+" inoremap <S-Space> <Esc>`^
+" vnoremap <S-Space> <Esc>gV
+" inoremap jj <Esc>`^
+" inoremap <C-L> <Esc>
+" vnoremap <C-L> <Esc>
+" nnoremap <C-L> l
+" inoremap jj <Esc>
+" inoremap qq <Esc>
+" vnoremap qq <Esc>
+"}}}
+nnoremap j +
+nnoremap k -
+" inoremap <Esc> <Esc>^
+nnoremap <Esc> ^
+nnoremap gl $
+
+nnoremap <C-M> i<CR><Esc><Up>:s/\s\+$//e<CR>+
+nmap     <CR>  <C-M>
+
+nnoremap <leader><Tab><Space> 20i<Space><Esc>`[<Up>W<Down>dw
+nnoremap <leader><Tab>,       ge20a,<Esc>`[l<Up>W<Down>hdwi<Space><Esc>`^
+"1}}}
+
+command! Vimrc :tabe $MYVIMRC
+
+augroup vimrc
+  autocmd!
+  au FileType vim nnoremap <buffer> <C-CR> :exe getline(line('.'))<CR>
+  " au InsertEnter * setlocal norelativenumber
+  " au InsertLeave * setlocal relativenumber
+augroup END
+
