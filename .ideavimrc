@@ -219,3 +219,33 @@ nnoremap <leader><Tab>,       ge20a,<Esc>`[l<Up>W<Down>hdwi<Space><Esc>`^
 command! Reload action IdeaVim.ReloadVimRc.reload
 command! Rename action RenameFile
 
+"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+" VIM & IDE Shortcuts
+sethandler <S- > a:vim
+sethandler <C-A> a:ide
+sethandler <C-B> a:ide
+sethandler <C-C> a:vim
+sethandler <C-D> a:vim
+sethandler <C-E> a:ide
+sethandler <C-F> a:ide
+sethandler <C-G> a:vim
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:ide
+sethandler <C-K> a:ide
+sethandler <C-L> a:ide
+sethandler <C-M> a:ide
+sethandler <C-N> a:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:vim
+sethandler <C-Q> a:vim
+sethandler <C-R> a:vim
+sethandler <C-S> a:ide
+sethandler <C-U> a:vim
+sethandler <C-V> a:ide
+sethandler <C-W> a:vim
+sethandler <C-S-W> a:vim
+sethandler <C-X> a:ide
+sethandler <C-Y> a:vim
+sethandler <C-[> a:ide
+sethandler <C-]> a:ide
