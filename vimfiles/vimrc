@@ -36,7 +36,7 @@ set whichwrap+=<,>,h,l,[,]
 
 colo torte
 
-set keymap=russian-jcukenwin
+set keymap=russian-jcukenwin iminsert=0
 
 "1}}}
 
