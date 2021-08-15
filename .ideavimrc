@@ -65,6 +65,7 @@ set ReplaceWithRegister
 " Easy escape.
 " inoremap jj <Esc>`^
 " inoremap <C-L> <Esc>
+inoremap <A-I> <Esc>
 " vnoremap <C-L> <Esc>
 " nnoremap <C-L> l
 " inoremap qq <Esc>
