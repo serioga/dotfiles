@@ -127,8 +127,9 @@ imap <S-Space> <Action>(ExpandLiveTemplateCustom)
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Insert mode
-nmap <leader>O  i_<CR><Up><End><BS>
-nmap <leader>o  i<CR><CR><Up>
+nmap <leader>A  i_<CR><Up><End><BS>
+nmap <leader>o  %a<CR>
+nmap <leader>a  %a
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Paste linewise
@@ -148,8 +149,8 @@ nnoremap <leader>J} ^%-J``
 nmap     <leader>JJ J<leader>==
 nmap     <leader>J, A,<Esc><leader>JJ
 nmap     <leader>J< <leader>J,
-nmap     <leader>gj ^%j
-nmap     <leader>gk k$%^
+nmap     <leader>j ^%j
+nmap     <leader>k k$%^
 
 nmap <leader>V <Action>(EditorCodeBlockEndWithSelection)
 nmap <leader>D <leader>V<Action>($Delete)
