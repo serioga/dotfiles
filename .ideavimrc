@@ -47,12 +47,7 @@ nnoremap k -
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Minor improvements
 nnoremap <Esc> ^
-noremap gl $
-
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Use built-in back/forward navigation
-nmap <C-O> <Action>(Back)
-nmap <C-I> <Action>(Forward)
+noremap  gl    $
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Windows clipboard.
@@ -63,42 +58,37 @@ vmap <C-C> <C-G>"*y
 xmap <C-C> "*y
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-nmap <leader>;h :set hlsearch!<CR>
-nmap <leader>;w <Action>(EditorToggleUseSoftWraps)
-nmap <leader>1 <Action>(SelectInProjectView)
+nmap <leader>/ :set hlsearch!<CR>
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " New line without entering insert mode, trimming trailing whitespace.
 " nnoremap <C-M> i<CR><Esc><Up>:s/\s\+$//e<CR>+
 nnoremap <C-M> i<CR><Esc>`^
 nmap     <CR>  <C-M>
-" nnoremap <CR> i<CR><Esc>`^
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Expand selection.
-nmap <leader><C-W>   <Action>(EditorSelectWord)
-vmap         <C-W>   <Action>(EditorSelectWord)
-vmap         <C-S-W> <Action>(EditorUnSelectWord)
-nmap         +       <Action>(EditorSelectWord)
-xmap         +       <Action>(EditorSelectWord)
-xmap         _       <Action>(EditorUnSelectWord)
-
-imap <S-Space> <Action>(ExpandLiveTemplateCustom)
+nmap <leader><C-W> <Action>(EditorSelectWord)
+vmap <C-W>         <Action>(EditorSelectWord)
+vmap <C-S-W>       <Action>(EditorUnSelectWord)
+nmap +             <Action>(EditorSelectWord)
+xmap +             <Action>(EditorSelectWord)
+xmap _             <Action>(EditorUnSelectWord)
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Insert mode
-nmap <leader>A  i_<CR><Up><End><BS>
-nmap <leader>o  %a<CR>
-nmap <leader>a  %a
+" Insert mode.
+nmap     <leader>A   i_<CR><Up><End><BS>
+nmap     <leader>o   %a<CR>
+nmap     <leader>a   %a
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Paste linewise
+" Paste linewise.
 nmap <leader>p :put<CR>
 nmap <leader>P :-1put<CR>
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Operations with custom “text-objects”.
-" - custom match from the line start to the match end
+" % - custom match from the line start to the match end
 nnoremap <leader>vv ^v%
 nnoremap <leader>yy ^y%
 nnoremap <leader>dd ^v%dkJ+
@@ -109,16 +99,15 @@ nnoremap <leader>J} ^%-J``
 nmap     <leader>JJ J<leader>==
 nmap     <leader>J, A,<Esc><leader>JJ
 nmap     <leader>J< <leader>J,
-nmap     <leader>j ^%j
-nmap     <leader>k k$%^
+nmap     <leader>j  ^%j
+nmap     <leader>k  k$%^
+nmap     <leader>V  <Action>(EditorCodeBlockEndWithSelection)
+nmap     <leader>D  <leader>V<Action>($Delete)
+nmap     <leader>C  i<Action>(EditorCodeBlockEndWithSelection)<Action>($Delete)
 
-nmap <leader>V <Action>(EditorCodeBlockEndWithSelection)
-nmap <leader>D <leader>V<Action>($Delete)
-nmap <leader>C i<Action>(EditorCodeBlockEndWithSelection)<Action>($Delete)
-
-" <C-M> - empty lines (assoc with C-M)
-nnoremap <leader>d<C-M> gEjVWk"_d^
-nmap     <leader>c<C-M> <leader>d<CR>O
+" <Space> - Empty lines
+nnoremap <leader>d<Space> gEjVWkkD
+nmap     <leader>c<Space> <leader>d<Space>i
 " , - the line until preceding comma
 nnoremap <leader>v, /.,\?$<CR>v?,$<CR>
 nmap     <leader>y, <leader>v,y
@@ -128,12 +117,13 @@ nmap     <leader>c, <leader>v,c
 nmap     <leader>vs <Action>(sql.SelectCurrentStatement)<Action>(EditorSelectWord)<Action>(EditorSelectWord)
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Ctrl-N, Ctrl-P.
-imap <C-N> <Action>(HippieBackwardCompletion)
-imap <C-P> <Action>(HippieCompletion)
-
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Code search and navigation.
+" Editor actions.
+nmap <C-O>      <Action>(Back)
+nmap <C-I>      <Action>(Forward)
+imap <C-N>      <Action>(HippieBackwardCompletion)
+imap <C-P>      <Action>(HippieCompletion)
+imap <S-Space>  <Action>(ExpandLiveTemplateCustom)
+nmap <leader>1  <Action>(SelectInProjectView)
 nmap <leader>*  <Action>(EditorSelectWord)<Action>(FindInPath)<Action>(EditorLeft)
 vmap <leader>*  <Action>(FindInPath)<Action>(EditorLeft)
 nmap <leader>gd <Action>(FindUsages)
@@ -148,13 +138,8 @@ nmap ]c         <Action>(VcsShowNextChangeMarker)
 vmap zf         <Action>(CollapseSelection)<Esc>
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Refactoring.
-nmap cd         <Action>(RenameElement)
-
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Code helpers.
 " Clojure comment form
-nnoremap gc. i#_<Esc>`^
 nnoremap <leader>gcf i#_<Esc>`^
 " Simple column alignment by previous line
 " nnoremap <leader><Tab><Space> 20i<Space><Esc>B<Up>vaW<Esc><Down>ldw
@@ -165,7 +150,6 @@ nnoremap <leader><Tab>,       ge20a,<Esc>`[l<Up>W<Down>hdwi<Space><Esc>`^
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Commands
 command! Reload action IdeaVim.ReloadVimRc.reload
-command! Rename action RenameFile
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " VIM & IDE Shortcuts
