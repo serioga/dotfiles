@@ -1,9 +1,4 @@
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" `s` as <leader>.
-" map s <nop>
-" map S <nop>
-" let mapleader="s"
-" let g:mapleader="s"
 nnoremap <Space> <nop>
 let mapleader=" "
 
@@ -29,47 +24,20 @@ set number
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Emulated Vim Plugins.
-" let mapleader="\"
-" set easymotion
-" let mapleader="s"
-" map <leader>f <Plug>(easymotion-f)
-" map <leader>t <Plug>(easymotion-t)
-" map <leader>j <Plug>(easymotion-j)
-" map <leader>k <Plug>(easymotion-k)
-" map <leader>/ <Plug>(easymotion-sn)
 
-" let g:surround_no_mappings=1
 set surround
-" nmap dS  <Plug>Dsurround
-" nmap cS  <Plug>Csurround
-" nmap gS  <Plug>Ysurround
-" xmap gS  <Plug>VSurround
-" " nmap ds  <Plug>Dsurround
-" " nmap cs  <Plug>Csurround
-" " nmap cS  <Plug>CSurround
-" " nmap ys  <Plug>Ysurround
-" " nmap yS  <Plug>YSurround
-" " nmap yss <Plug>Yssurround
-" " nmap ySs <Plug>YSsurround
-" " nmap ySS <Plug>YSsurround
-" " xmap S   <Plug>VSurround
-" " xmap gS  <Plug>VgSurround
 
 let g:highlightedyank_highlight_color = "rgba(255, 246, 143, 255)"
 let g:highlightedyank_highlight_duration = "1000"
 set highlightedyank
+
 set commentary
+
 set ReplaceWithRegister
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Easy escape.
-" inoremap jj <Esc>`^
-" inoremap <C-L> <Esc>
 inoremap <A-I> <Esc>
-" vnoremap <C-L> <Esc>
-" nnoremap <C-L> l
-" inoremap qq <Esc>
-" vnoremap qq <Esc>
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Move to first non-blank character on Up/Down.
@@ -78,7 +46,6 @@ nnoremap k -
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Minor improvements
-" inoremap <Esc> <Esc>^
 nnoremap <Esc> ^
 noremap gl $
 
@@ -92,15 +59,8 @@ nmap <C-I> <Action>(Forward)
 " There is no `smap` command so we use pair of vmap/xmap to create different
 " mappings for visual and select modes.
 nmap <C-C> "*yy
-" vmap <C-C> <Action>($Copy)
-" xmap <C-C> <Action>($Copy)<Esc>`<
 vmap <C-C> <C-G>"*y
 xmap <C-C> "*y
-
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Scroll Up/Down with space.
-" nnoremap <Space>   <C-E>
-" nnoremap <S-Space> <C-Y>
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 nmap <leader>;h :set hlsearch!<CR>
@@ -168,19 +128,6 @@ nmap     <leader>c, <leader>v,c
 nmap     <leader>vs <Action>(sql.SelectCurrentStatement)<Action>(EditorSelectWord)<Action>(EditorSelectWord)
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Adding space around.
-" nnoremap <leader>sl  a<Space><Left><Esc>
-" nnoremap <leader>sh  i<Space><Right><Esc>
-" nnoremap <leader>sk  a<Esc>O<C-O>`^<Esc>
-" nnoremap <leader>sj  a<Esc>o<C-O>`^<Esc>
-" nnoremap <leader>sph `[v`]c<Space><C-R>"<Esc>
-" nnoremap <leader>spk `[v`]c<CR><C-R>"<Esc>
-" nnoremap <leader>s<CR>    a<CR><Esc>k$
-
-" nnoremap <leader>p<Space> a<Space><C-R>"<Esc>
-" nnoremap <leader>P<Space> i<C-R>"<Space><Esc>
-
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Ctrl-N, Ctrl-P.
 imap <C-N> <Action>(HippieBackwardCompletion)
 imap <C-P> <Action>(HippieCompletion)
@@ -202,7 +149,6 @@ vmap zf         <Action>(CollapseSelection)<Esc>
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Refactoring.
-" map  <leader>,r <Action>(Refactorings.QuickListPopupAction)
 nmap cd         <Action>(RenameElement)
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
