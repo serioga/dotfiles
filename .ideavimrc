@@ -77,9 +77,9 @@ xmap _             <Action>(EditorUnSelectWord)
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Insert mode.
-nmap     <leader>A   i_<CR><Up><End><BS>
-nmap     <leader>o   %a<CR>
-nmap     <leader>a   %a
+nmap <leader>A i_<CR><Up><End><BS>
+nmap <leader>o %a<CR>
+nmap <leader>a %a
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Paste linewise.
