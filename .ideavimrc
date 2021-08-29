@@ -86,6 +86,10 @@ nmap <leader>a %a
 nmap <leader>p :put<CR>
 nmap <leader>P :-1put<CR>
 
+" Paste with space.
+nmap <leader>gp a<Space><Esc>p
+nmap <leader>gP i<Space><Esc>P
+
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Operations with custom “text-objects”.
 
