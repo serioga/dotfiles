@@ -1,9 +1,14 @@
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+" Space as <leader>.
+
 nnoremap <Space> <nop>
 let mapleader=" "
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Basic options.
+" See https://github.com/JetBrains/ideavim/wiki/%22set%22-commands
+" for the List of Supported Set Commands.
+
 set showmode
 set scrolloff=5
 set keymodel=startsel,stopsel
@@ -24,6 +29,7 @@ set number
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Emulated Vim Plugins.
+" See https://github.com/JetBrains/ideavim/wiki/Emulated-plugins.
 
 set surround
 
@@ -36,20 +42,19 @@ set commentary
 set ReplaceWithRegister
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+" Basic mappings.
+
 " Easy escape.
 inoremap <A-I> <Esc>
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Move to first non-blank character on Up/Down.
 nnoremap j +
 nnoremap k -
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Minor improvements
+" Minor improvements.
 nnoremap <Esc> ^
 noremap  gl    $
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Windows clipboard.
 " There is no `smap` command so we use pair of vmap/xmap to create different
 " mappings for visual and select modes.
@@ -57,16 +62,13 @@ nmap <C-C> "*yy
 vmap <C-C> <C-G>"*y
 xmap <C-C> "*y
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+" Toggle settings.
 nmap <leader>/ :set hlsearch!<CR>
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" New line without entering insert mode, trimming trailing whitespace.
-" nnoremap <C-M> i<CR><Esc><Up>:s/\s\+$//e<CR>+
+" New line without entering insert mode.
 nnoremap <C-M> i<CR><Esc>`^
 nmap     <CR>  <C-M>
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Expand selection.
 nmap <leader><C-W> <Action>(EditorSelectWord)
 vmap <C-W>         <Action>(EditorSelectWord)
@@ -75,20 +77,19 @@ nmap +             <Action>(EditorSelectWord)
 xmap +             <Action>(EditorSelectWord)
 xmap _             <Action>(EditorUnSelectWord)
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Insert mode.
 nmap <leader>A i_<CR><Up><End><BS>
 nmap <leader>o %a<CR>
 nmap <leader>a %a
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Paste linewise.
 nmap <leader>p :put<CR>
 nmap <leader>P :-1put<CR>
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Operations with custom “text-objects”.
-" % - custom match from the line start to the match end
+
+" % - custom match from the line start to the match end.
 nnoremap <leader>vv ^v%
 nnoremap <leader>yy ^y%
 nnoremap <leader>dd ^v%dkJ+
@@ -105,19 +106,22 @@ nmap     <leader>V  <Action>(EditorCodeBlockEndWithSelection)
 nmap     <leader>D  <leader>V<Action>($Delete)
 nmap     <leader>C  i<Action>(EditorCodeBlockEndWithSelection)<Action>($Delete)
 
-" <Space> - Empty lines
+" <Space> - Empty lines.
 nnoremap <leader>d<Space> gEjVWkkD
 nmap     <leader>c<Space> <leader>d<Space>i
-" , - the line until preceding comma
+
+" , - the line until preceding comma.
 nnoremap <leader>v, /.,\?$<CR>v?,$<CR>
 nmap     <leader>y, <leader>v,y
 nmap     <leader>d, <leader>v,d
 nmap     <leader>c, <leader>v,c
-" s - SQL statement
-nmap     <leader>vs <Action>(sql.SelectCurrentStatement)<Action>(EditorSelectWord)<Action>(EditorSelectWord)
+
+" s - SQL statement.
+nmap <leader>vs <Action>(sql.SelectCurrentStatement)<Action>(EditorSelectWord)<Action>(EditorSelectWord)
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Editor actions.
+
 nmap <C-O>      <Action>(Back)
 nmap <C-I>      <Action>(Forward)
 imap <C-N>      <Action>(HippieBackwardCompletion)
@@ -137,10 +141,14 @@ nmap [c         <Action>(VcsShowPrevChangeMarker)
 nmap ]c         <Action>(VcsShowNextChangeMarker)
 vmap zf         <Action>(CollapseSelection)<Esc>
 
+command! Reload action IdeaVim.ReloadVimRc.reload
+
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Code helpers.
+
 " Clojure comment form
 nnoremap <leader>gcf i#_<Esc>`^
+
 " Simple column alignment by previous line
 " nnoremap <leader><Tab><Space> 20i<Space><Esc>B<Up>vaW<Esc><Down>ldw
 " nnoremap <leader><Tab>,       gE20a,<Esc>B<Up>vaW<Esc><Down>dwi<Space><Esc>`^
@@ -148,11 +156,8 @@ nnoremap <leader><Tab><Space> 20i<Space><Esc>`[<Up>W<Down>dw
 nnoremap <leader><Tab>,       ge20a,<Esc>`[l<Up>W<Down>hdwi<Space><Esc>`^
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Commands
-command! Reload action IdeaVim.ReloadVimRc.reload
-
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " VIM & IDE Shortcuts
+
 sethandler <S- > a:vim
 sethandler <C-A> a:ide
 sethandler <C-B> a:ide
@@ -181,3 +186,5 @@ sethandler <C-X> a:ide
 sethandler <C-Y> a:vim
 sethandler <C-[> a:ide
 sethandler <C-]> a:ide
+
+"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
