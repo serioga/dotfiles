@@ -45,7 +45,8 @@ set ReplaceWithRegister
 " Basic mappings.
 
 " Easy escape.
-inoremap <A-I> <Esc>
+map  <A-D> <Esc>
+imap <A-D> <Esc>
 
 " Move to first non-blank character on Up/Down.
 nnoremap j +
