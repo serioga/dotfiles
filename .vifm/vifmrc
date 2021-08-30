@@ -12,7 +12,6 @@
 " you will need to change this setting.
 
 set vicmd=vim
-set vicmd=C:/Users/Anwender/scoop/apps/vim/current/vim.exe
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
