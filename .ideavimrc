@@ -79,7 +79,8 @@ xmap +             <Action>(EditorSelectWord)
 xmap _             <Action>(EditorUnSelectWord)
 
 " Insert mode.
-nmap <leader>i i_<CR><Up><End><BS>
+nmap <leader>i i<Space><Left>
+nmap <leader>I i_<CR><Up><End><BS>
 nmap <leader>o %a<CR>
 nmap <leader>a %a
 
