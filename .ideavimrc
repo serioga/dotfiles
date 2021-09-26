@@ -48,10 +48,6 @@ set ReplaceWithRegister
 map  <A-D> <Esc>
 imap <A-D> <Esc>
 
-" Move to first non-blank character on Up/Down.
-nnoremap j +
-nnoremap k -
-
 " Minor improvements.
 nnoremap <Esc> ^
 noremap  gl    $
