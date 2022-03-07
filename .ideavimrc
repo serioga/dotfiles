@@ -44,14 +44,6 @@ set ReplaceWithRegister
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Basic mappings.
 
-" Easy escape.
-map  <A-D> <Esc>
-imap <A-D> <Esc>
-
-" Minor improvements.
-nnoremap <Esc> ^
-noremap  gl    $
-
 " Windows clipboard.
 " There is no `smap` command so we use pair of vmap/xmap to create different
 " mappings for visual and select modes.
@@ -60,19 +52,12 @@ vmap <C-C> <C-G>"*y
 xmap <C-C> "*y
 
 " Toggle settings.
-nmap <leader>/ :set hlsearch!<CR>
-
-" New line without entering insert mode.
-nnoremap <C-M> i<CR><Esc>`^
-nmap     <CR>  <C-M>
+nmap <leader>// :set hlsearch!<CR>
 
 " Expand selection.
-nmap <leader><C-W> <Action>(EditorSelectWord)
-vmap <C-W>         <Action>(EditorSelectWord)
-vmap <C-S-W>       <Action>(EditorUnSelectWord)
-nmap +             <Action>(EditorSelectWord)
-xmap +             <Action>(EditorSelectWord)
-xmap _             <Action>(EditorUnSelectWord)
+" nmap + <Action>(EditorSelectWord)
+" xmap + <Action>(EditorSelectWord)
+" xmap _ <Action>(EditorUnSelectWord)
 
 " Insert mode.
 nmap <leader>i i<Space><Left>
@@ -83,10 +68,6 @@ nmap <leader>a %a
 " Paste linewise.
 nmap <leader>p :put<CR>
 nmap <leader>P :-1put<CR>
-
-" Paste with space.
-nmap <leader>gp a<Space><Esc>p
-nmap <leader>gP i<Space><Esc>P
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " Operations with custom “text-objects”.
@@ -102,8 +83,6 @@ nnoremap <leader>J} ^%-J``
 nmap     <leader>JJ J<leader>==
 nmap     <leader>J, A,<Esc><leader>JJ
 nmap     <leader>J< <leader>J,
-nmap     <leader>j  ^%j
-nmap     <leader>k  k$%^
 nmap     <leader>V  <Action>(EditorCodeBlockEndWithSelection)
 nmap     <leader>D  <leader>V<Action>($Delete)
 nmap     <leader>C  i<Action>(EditorCodeBlockEndWithSelection)<Action>($Delete)
@@ -128,12 +107,12 @@ nmap <C-O>      <Action>(Back)
 nmap <C-I>      <Action>(Forward)
 imap <C-N>      <Action>(HippieBackwardCompletion)
 imap <C-P>      <Action>(HippieCompletion)
-imap <S-Space>  <Action>(ExpandLiveTemplateCustom)
 nmap <leader>1  <Action>(SelectInProjectView)
 nmap <leader>*  <Action>(EditorSelectWord)<Action>(FindInPath)<Action>(EditorLeft)
 vmap <leader>*  <Action>(FindInPath)<Action>(EditorLeft)
 nmap <leader>gd <Action>(FindUsages)
 nmap cd         <Action>(RenameElement)
+nmap gD         <Action>(FindUsages)
 nmap gf         <Action>(EditorSelectWord)<Action>(GotoFile)<Action>(EditorLeft)
 vmap gf         <Action>(GotoFile)<Action>(EditorLeft)
 nmap [m         <Action>(MethodUp)
@@ -150,44 +129,36 @@ command! Reload action IdeaVim.ReloadVimRc.reload
 " Code helpers.
 
 " Clojure comment form
-nnoremap <leader>gcf i#_<Esc>`^
+nmap gc. i#_<Esc>`^<Action>(ReformatCode)
 
 " Simple column alignment by previous line
-" nnoremap <leader><Tab><Space> 20i<Space><Esc>B<Up>vaW<Esc><Down>ldw
-" nnoremap <leader><Tab>,       gE20a,<Esc>B<Up>vaW<Esc><Down>dwi<Space><Esc>`^
 nnoremap <leader><Tab><Space> 20i<Space><Esc>`[<Up>W<Down>dw
 nnoremap <leader><Tab>,       ge20a,<Esc>`[l<Up>W<Down>hdwi<Space><Esc>`^
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 " VIM & IDE Shortcuts
 
-sethandler <S- > a:vim
 sethandler <C-A> a:ide
-sethandler <C-B> a:ide
+sethandler <C-B> i:ide
 sethandler <C-C> a:vim
 sethandler <C-D> a:vim
-sethandler <C-E> a:ide
-sethandler <C-F> a:ide
+sethandler <C-E> a:ide i:vim
+sethandler <C-F> a:vim
 sethandler <C-G> a:vim
 sethandler <C-H> a:vim
-sethandler <C-I> a:vim
-sethandler <C-J> a:ide
-sethandler <C-K> a:ide
+sethandler <C-I> a:ide n:vim
+sethandler <C-K> a:vim
 sethandler <C-L> a:ide
-sethandler <C-M> a:ide
 sethandler <C-N> a:vim
 sethandler <C-O> a:vim
 sethandler <C-P> a:vim
-sethandler <C-Q> a:vim
-sethandler <C-R> a:vim
+sethandler <C-Q> a:ide n:vim
+sethandler <C-R> a:ide i:vim
 sethandler <C-S> a:ide
 sethandler <C-U> a:vim
 sethandler <C-V> a:ide
-sethandler <C-W> a:vim
-sethandler <C-S-W> a:vim
+sethandler <C-W> a:ide i:vim
 sethandler <C-X> a:ide
 sethandler <C-Y> a:vim
-sethandler <C-[> a:ide
-sethandler <C-]> a:ide
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
