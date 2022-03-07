@@ -87,9 +87,9 @@ nmap     <leader>V  <Action>(EditorCodeBlockEndWithSelection)
 nmap     <leader>D  <leader>V<Action>($Delete)
 nmap     <leader>C  i<Action>(EditorCodeBlockEndWithSelection)<Action>($Delete)
 
-" <Space> - Empty lines.
-nnoremap <leader>d<Space> gEjVWkkD
-nmap     <leader>c<Space> <leader>d<Space>i
+" s - Empty lines.
+nnoremap <leader>ds gEjVWkkD
+nmap     <leader>cs <leader>d<Space>i
 
 " , - the line until preceding comma.
 nnoremap <leader>v, /.,\?$<CR>v?,$<CR>
