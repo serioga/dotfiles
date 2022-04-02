@@ -39,6 +39,8 @@ set highlightedyank
 
 set commentary
 
+set matchit
+
 set ReplaceWithRegister
 
 "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
