@@ -2,7 +2,7 @@ colo serioga
 set guifont=Fira_Code:h10:W400:cRUSSIAN
 set guioptions-=T guioptions-=m
 " set rop=type:directx,gamma:1.0,contrast:0.5,level:1,geom:1,renmode:4,taamode:1
-set rop=type:directx
+" set rop=type:directx
 
 set columns=120 lines=46
 winpos 650 100
