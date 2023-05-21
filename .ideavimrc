@@ -1,11 +1,12 @@
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Space as <leader>.
 
 nnoremap <Space> <nop>
 let mapleader=" "
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Basic options.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Basic options
+"
 " See https://github.com/JetBrains/ideavim/wiki/%22set%22-commands
 " for the List of Supported Set Commands.
 
@@ -19,6 +20,7 @@ set ideajoin
 "set clipboard+=unnamed
 set timeoutlen=3000
 set startofline
+set whichwrap+=<,>,h,l,[,]
 
 set ignorecase
 set smartcase
@@ -27,8 +29,9 @@ set iskeyword=@,48-57,_,128-167,224-235,-,?,!,:,<,>,*
 
 set number
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Emulated Vim Plugins.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Emulated Vim Plugins
+"
 " See https://github.com/JetBrains/ideavim/wiki/Emulated-plugins.
 
 set surround
@@ -43,8 +46,8 @@ set matchit
 
 set ReplaceWithRegister
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Basic mappings.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Basic mappings.
 
 " Windows clipboard.
 " There is no `smap` command so we use pair of vmap/xmap to create different
@@ -74,8 +77,8 @@ nmap <leader>P :-1put<CR>
 " Insert new line in normal mode
 nmap <leader><CR> i<CR><Esc>=%`^
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Operations with custom “text-objects”.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Operations with custom “text-objects”
 
 " % - custom match from the line start to the match end.
 nnoremap <leader>vv ^v%
@@ -105,8 +108,8 @@ nmap     <leader>c, <leader>v,c
 " s - SQL statement.
 nmap <leader>vs <Action>(sql.SelectCurrentStatement)<Action>(EditorSelectWord)<Action>(EditorSelectWord)
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Editor actions.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Editor actions
 
 nmap <C-O>      <Action>(Back)
 nmap <C-I>      <Action>(Forward)
@@ -132,8 +135,8 @@ vmap zf         <Action>(CollapseSelection)<Esc>
 
 command! Reload action IdeaVim.ReloadVimRc.reload
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" Code helpers.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## Code helpers
 
 " Clojure comment form
 nmap gc. i#_<Esc>`^<Action>(ReformatCode)
@@ -142,8 +145,8 @@ nmap gc. i#_<Esc>`^<Action>(ReformatCode)
 nnoremap <leader><Tab><Space> 20i<Space><Esc>`[<Up>W<Down>dw
 nnoremap <leader><Tab>,       ge20a,<Esc>`[l<Up>W<Down>hdwi<Space><Esc>`^
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
-" VIM & IDE Shortcuts
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ## VIM & IDE Shortcuts
 
 sethandler <C-A> a:ide
 sethandler <C-B> a:ide
@@ -168,4 +171,4 @@ sethandler <C-W> a:ide i:vim
 sethandler <C-X> a:ide
 sethandler <C-Y> a:vim
 
-"•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -47,10 +47,8 @@
 			<string>comment</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string>italic</string>
 				<key>foreground</key>
-				<string>#999999</string>
+				<string>#606000</string>
 				<key>background</key>
 				<string>#F5F5F5</string>
 			</dict>
@@ -65,19 +63,17 @@
 			<dict>
 				<key>foreground</key>
 				<string>#002266</string>
-				<key>background</key>
-				<string>#FFFFFF00</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>String quoted</string>
+			<string>String</string>
 			<key>scope</key>
-			<string>source string.quoted</string>
+			<string>string, markup.raw, markup.quote</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#4D4D4D</string>
+				<string>#181818</string>
 				<key>background</key>
 				<string>#F5F5F5</string>
 			</dict>
@@ -86,7 +82,7 @@
 			<key>name</key>
 			<string>String unquoted</string>
 			<key>scope</key>
-			<string>string.unquoted</string>
+			<string>unused</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -95,6 +91,18 @@
 				<string>#F5F5F5</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>Character escape</string>
+			<key>scope</key>
+			<string>constant.character.escape</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#808080</string>
+			</dict>
+		</dict>
+
 		<!--dict>
 			<key>name</key>
 			<string>Function name</string>
@@ -127,9 +135,7 @@
 			<key>settings</key>
 			<dict>
 				<key>background</key>
-				<string>#9D1E15</string>
-				<key>foreground</key>
-				<string>#F8F8F8</string>
+				<string>#ffcccc</string>
 			</dict>
 		</dict>
 		<dict>
@@ -158,14 +164,16 @@
 			<key>name</key>
 			<string>Attribute name</string>
 			<key>scope</key>
-			<string>text.xml entity.other.attribute-name, support.type.property-name.css,
-			 text.dokuwiki string.quoted.single.html, meta.attribute-with-value.class.html</string>
+			<string> entity.other, support.type.property-name.css </string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
 				<string>#737780</string>
 			</dict>
 		</dict>
+		<!-- 
+			Clojure
+		 -->
 		<dict>
 			<key>name</key>
 			<string>Clojure Keyword</string>
@@ -199,46 +207,25 @@
 				<string>#FFFFFF</string>
 			</dict>
 		</dict>
+		<!-- 
+			XML
+		 -->
 		<dict>
 			<key>name</key>
 			<string>XML Text</string>
 			<key>scope</key>
-			<string>text.xml, text.html.markdown meta.disable-markdown, text.dokuwiki markup.changed</string>
+			<string>text.xml, text.html.basic, string.unquoted.cdata</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#0037A6</string>
+				<string>#7F0000</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>XML Attribute</string>
+			<string>XML Code</string>
 			<key>scope</key>
-			<string>string.quoted.double.xml, string.quoted.single.html</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#0037A6</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>CSS selector</string>
-			<key>scope</key>
-			<string>source.css meta.selector entity</string>
-			<key>settings</key>
-			<dict>
-				<key>foreground</key>
-				<string>#000000</string>
-				<key>background</key>
-				<string>#F5F5F5</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>JSON key</string>
-			<key>scope</key>
-			<string>meta.mapping.key.json string.quoted</string>
+			<string>meta.tag, meta string</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -247,15 +234,33 @@
 				<string>#FFFFFF</string>
 			</dict>
 		</dict>
+		<!-- 
+			JSON
+		 -->
+		<dict>
+			<key>name</key>
+			<string>JSON key</string>
+			<key>scope</key>
+			<string>meta.mapping.key string</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#002266</string>
+				<key>background</key>
+				<string>#FFFFFF</string>
+			</dict>
+		</dict>
 		<dict>
 			<key>name</key>
 			<string>JSON value</string>
 			<key>scope</key>
-			<string>meta.mapping.value.json string.quoted</string>
+			<string>meta.mapping.value string</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#0037A6</string>
+				<string>#181818</string>
+				<key>background</key>
+				<string>#f5f5f5</string>
 			</dict>
 		</dict>
 		<dict>
@@ -269,6 +274,9 @@
 				<string>#4D4D4D</string>
 			</dict>
 		</dict>
+		<!-- 
+			Markup
+		 -->
 		<dict>
 			<key>name</key>
 			<string>URL</string>
@@ -293,13 +301,35 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Heading</string>
+			<key>scope</key>
+			<string>markup.heading.1, markup.heading.2, markup.heading.3</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Heading</string>
+			<key>scope</key>
+			<string>markup.heading.2</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#7f0000</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Bold</string>
 			<key>scope</key>
 			<string>markup.bold</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string>bold</string>
+				<key>foreground</key>
+				<string>#002266</string>
 			</dict>
 		</dict>
 		<dict>
@@ -320,6 +350,8 @@
 			<string>markup.bold markup.italic</string>
 			<key>settings</key>
 			<dict>
+				<key>foreground</key>
+				<string>#002266</string>
 				<key>fontStyle</key>
 				<string>bold italic</string>
 			</dict>

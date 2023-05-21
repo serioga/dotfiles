@@ -39,7 +39,7 @@ hi Visual     gui=NONE      guifg=White     guibg=#0078D7
 " hi Comment    gui=NONE      guifg=wheat3
 " hi Comment    gui=NONE      guifg=yellow4
 " hi Comment    gui=NONE      guifg=khaki4
-hi Comment    gui=NONE      guifg=#9b9657
+hi Comment    gui=NONE      guifg=#606000   guibg=#f5f5f5
 
 hi Constant   gui=NONE      guifg=#4d4d4d
 hi Special    gui=NONE      guifg=fg
@@ -50,12 +50,13 @@ hi Statement  gui=NONE      guifg=#002266
 hi Type       gui=NONE      guifg=#737780
 hi Todo       gui=NONE      guifg=#cc0000  guibg=#f5f5f5
 " hi Title      gui=NONE      guifg=Purple
-hi Title      gui=NONE      guifg=#852699
+" hi Title      gui=NONE      guifg=#852699
+hi Title      gui=NONE      guifg=#7f0000
 hi DiffAdd    gui=NONE      guifg=Black    guibg=#bee6be
 hi DiffDelete gui=NONE      guifg=Black    guibg=#d6d6d6
 hi DiffChange gui=NONE      guifg=Black    guibg=#c2d8f2
 " hi Folded     gui=NONE      guifg=#737780  guibg=NONE
-hi Folded     gui=NONE      guifg=#4d4d4d  guibg=NONE
+hi Folded     gui=italic      guifg=fg  guibg=#f5f5f5
 " hi Folded     gui=NONE      guifg=#9b9657  guibg=#f5f5f5
 hi FoldColumn                              guibg=#f5f5f5
 " hi LineNr                   guifg=DarkGray
@@ -67,7 +68,7 @@ hi ColorColumn                             guibg=#f5f5f5
 " Custom groups
 
 hi Block      gui=NONE                     guibg=#f5f5f5
-hi StrCode    gui=NONE      guifg=#4d4d4d  guibg=#f5f5f5
+hi StrCode    gui=NONE      guifg=#181818  guibg=#f5f5f5
 hi StrProp    gui=NONE      guifg=#003eb3  guibg=#f5f5f5
 hi StrVal     gui=NONE      guifg=#0037a6
 hi Hyperlink  gui=underline guifg=#008000
@@ -91,11 +92,11 @@ hi link diffChanged DiffChange
 hi link htmlTag       Weak
 hi link htmlEndTag    Weak
 hi link htmlStatement Normal
-hi link htmlString    StrVal
+hi link htmlString    Normal
 
 hi link xmlTag    Weak
 hi link xmlEndTag Weak
-hi link xmlString StrVal
+hi link xmlString Normal
 
 hi link jsonString StrVal
 

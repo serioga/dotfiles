@@ -11,8 +11,6 @@ source $VIMRUNTIME/defaults.vim
 
 " Options {{{1
 " nnoremap <SPACE> <Nop>
-" let mapleader = " "
-" let mapleader = "s"
 " nnoremap s <Nop>
 " map s <Nop>
 nnoremap <Space> <nop>
@@ -22,7 +20,6 @@ let mapleader=" "
 set ignorecase smartcase
 set nowrap linebreak
 " set number relativenumber
-set linespace=1
 set sw=2 sts=2 et
 set ai
 set fo=crq2l1j
@@ -161,23 +158,11 @@ map <C-D> <C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E>j<C-E
 " Fix non-working keys in Windows GVIM {{{
 nnoremap g<CR> <C-]>
 "}}}
-" Avoid the escape key {{{
-" https://vim.fandom.com/wiki/Avoid_the_escape_key
-" inoremap <S-Space> <Esc>`^
-" vnoremap <S-Space> <Esc>gV
-" inoremap jj <Esc>`^
-" inoremap <C-L> <Esc>
-" vnoremap <C-L> <Esc>
-" nnoremap <C-L> l
-" inoremap jj <Esc>
-" inoremap qq <Esc>
-" vnoremap qq <Esc>
-"}}}
-nnoremap j +
-nnoremap k -
-" inoremap <Esc> <Esc>^
 nnoremap <Esc> ^
 nnoremap gl $
+
+" Insert new line in normal mode
+nmap <leader><CR> i<CR><Esc>=%`^
 
 nnoremap <C-M> i<CR><Esc><Up>:s/\s\+$//e<CR>+
 nmap     <CR>  <C-M>
