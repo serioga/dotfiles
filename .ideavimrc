@@ -74,6 +74,9 @@ nmap <leader>a %a
 nmap <leader>p :put<CR>
 nmap <leader>P :-1put<CR>
 
+" Paste as plain text via clipboard.
+nmap <leader>gp :let @+=@"<CR><Action>(EditorPasteSimple)
+
 " Insert new line in normal mode
 nmap <leader><CR> i<CR><Esc>=%`^
 
