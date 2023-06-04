@@ -105,6 +105,7 @@ hi link helpSpecial        Attribute
 
 " Plugins
 
+hi link StartifyHeader Weak
 hi link StartifyNumber Hyperlink
 hi link StartifyPath   Attribute
 hi link StartifySlash  Attribute
