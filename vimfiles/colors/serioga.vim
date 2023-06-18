@@ -45,7 +45,7 @@ hi! link Underlined Hyperlink
 hi       DiffAdd    gui=NONE       guifg=fg       guibg=#bee6be
 hi       DiffDelete gui=NONE       guifg=fg       guibg=#d6d6d6
 hi       DiffChange gui=NONE       guifg=fg       guibg=#c2d8f2
-hi       Folded     gui=italic     guifg=fg       guibg=#f5f5f5
+hi       Folded     gui=italic     guifg=#606000  guibg=#f5f5f5
 hi       FoldColumn                               guibg=#f5f5f5
 hi       LineNr                    guifg=Gray90
 hi       CursorLineNr gui=bold     guifg=Gray80   guibg=NONE
@@ -98,10 +98,12 @@ hi link vimCommentTitleLeader Comment
 hi link helpHyperTextEntry StrHigh
 hi link helpHyperTextJump  Hyperlink
 hi link helpHeader         Comment
+hi link helpHeadline       Normal
+" hi link helpNote           StrKwd
 hi link helpCommand        String
 hi link helpExample        String
-hi link helpOption         String
-hi link helpSpecial        Attribute
+hi link helpOption         StrKwd
+" hi link helpSpecial        StrKwd
 
 " Plugins
 
